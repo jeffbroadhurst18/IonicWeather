@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Jumper</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Which colour jumper should you wear?</h3>
+
+  <p>
+    Let this app help you decide which jumper to wear.
+  </p>
+  <form (ngSubmit)="logForm()" *ngIf="!replyText">
+      <ion-item>
+        <ion-label floating>What is your name?</ion-label>
+        <ion-input type="text" [(ngModel)]="personname" name="personname"></ion-input>
+      </ion-item>
+     
+      <button ion-button type="submit" block>Decide</button>
+    </form>
+<div *ngIf="replyText">
+<p>{{replyText}}</p>
+<button ion-button type="submit" block (click)="reset()">Try Again?</button>
+</div>
+</ion-content>
+

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Weather</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<h3>Weather Forecast</h3>
+
+<div>
+  <label for="locations">Select Location</label>
+  <select id="locations" required [(ngModel)]="selectedLocation" (change)="onChange($event.target.value)">
+    <option *ngFor="let loc of locations" [ngValue]="loc.id">{{loc.name | transformLocation}}</option>
+  </select>
+</div>
+
+<!--<div>{{id}}</div>-->
+<div>
+  <ul>
+    <li *ngFor="let forecast of forecasts">{{forecast}}</li>
+  </ul>
+</div>
+
+</ion-content>
