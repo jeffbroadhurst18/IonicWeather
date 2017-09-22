@@ -1,6 +1,6 @@
 {
-  "name": "WeatherProject",
-  "app_id": "0df2d585",
-  "v2": true,
-  "typescript": true
+  "name": "ionicweather",
+  "app_id": "66e9f1e3",
+  "type": "ionic-angular",
+  "integrations": {}
 }

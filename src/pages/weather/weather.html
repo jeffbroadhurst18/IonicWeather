@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="weather-menu">
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -8,21 +8,52 @@
 </ion-header>
 
 
-<ion-content padding>
-<h3>Weather Forecast</h3>
+<ion-content padding class="weather-page">
+  <h3>Weather Forecast - {{todaysDate}}</h3>
 
-<div>
-  <label for="locations">Select Location</label>
-  <select id="locations" required [(ngModel)]="selectedLocation" (change)="onChange($event.target.value)">
+  <div>
+    <label for="locations" class="drop-title">Select Location</label>
+    <select id="locations" required [(ngModel)]="selectedLocation" (change)="onChange($event.target.value)">
     <option *ngFor="let loc of locations" [ngValue]="loc.id">{{loc.name | transformLocation}}</option>
   </select>
-</div>
+  </div>
 
-<!--<div>{{id}}</div>-->
-<div>
-  <ul>
-    <li *ngFor="let forecast of forecasts">{{forecast}}</li>
-  </ul>
-</div>
+  <!--<div>{{id}}</div>-->
+  <!-- <div>
+    <ul>
+      <li *ngFor="let forecast of forecasts">{{forecast}}</li>
+    </ul>
+  </div> -->
+  <div *ngIf="issuedAt" class="weather-issued-at">
+    Issued at: {{issuedAt}}
+  </div>
+  <table class="table table-responsive table-bordered weather-table">
+    <thead>
+      <tr>
+        <td *ngIf="outlooks" class="weather-header"></td>
+        <td *ngIf="forecasts" class="weather-header">Today and Tomorrow</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of forecasts">
+        <td class="weather-title">{{forecast.title}}</td>
+        <td>{{forecast.$}}</td>
+      </tr>
+    </tbody>
+  </table>
+<table class="table table-responsive table-bordered weather-table">
+    <thead>
+      <tr>
+        <td *ngIf="outlooks" class="weather-header"></td>
+        <td *ngIf="outlooks" class="weather-header">Outlook</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of outlooks">
+        <td class="weather-title">{{forecast.title}}</td>
+        <td>{{forecast.$}}</td>
+      </tr>
+    </tbody>
+  </table>
 
 </ion-content>

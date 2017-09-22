@@ -4,7 +4,6 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { JumperPage } from '../pages/jumper/jumper';
 import { WeatherPage } from '../pages/weather/weather';
 
@@ -28,10 +27,8 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Weather Forecast', component: WeatherPage },
-      { title: 'Which jumper?', component: JumperPage },
-      { title: 'Hello Ionic', component: HelloIonicPage }
-      // { title: 'My First List', component: ListPage },
-    ];
+      { title: 'Which Jumper?', component: JumperPage },
+     ];
   }
 
   initializeApp() {
